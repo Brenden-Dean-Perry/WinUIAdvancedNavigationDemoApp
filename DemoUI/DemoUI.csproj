@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.1.1" />
     <PackageReference Include="H.OxyPlot.WinUI" Version="0.9.30" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.756" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241114003" />
@@ -49,6 +50,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CSharp_DataAccess\DataAcess\DataAccess.csproj" />
     <ProjectReference Include="..\..\CSharp_PresentationLayer\PresentationLayer\PresentationLayer.csproj" />
     <ProjectReference Include="..\..\CSharp_UseCases\UseCases\UseCases.csproj" />
   </ItemGroup>

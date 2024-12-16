@@ -43,5 +43,6 @@ namespace DemoUI.Views
                 Greeting.Text = "Hello!";
             }
         }
+
     }
 }

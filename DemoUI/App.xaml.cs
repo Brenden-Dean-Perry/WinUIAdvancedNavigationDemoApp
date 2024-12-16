@@ -15,6 +15,9 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using UseCases.Classes;
+//using Autofac;
+using DataAccess.Gateways;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,6 +31,7 @@ namespace DemoUI
     {
         public string AppName = "Demo App";
         private Window m_window;
+        public Config Config { get; set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -44,7 +48,20 @@ namespace DemoUI
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
+            //var container = ConfigurationEngine.Configure();
+            //using (var scope = container.BeginLifetimeScope())
+            //{
+            //    try
+            //    {
+            //        Config = scope.Resolve<Config>();
+            //        ApiKeyGateway keyGateway = new ApiKeyGateway(Config);
+            //        Config.LoadApiKeyChain(keyGateway); 
+            //    }
+            //    catch
+            //    { }
+            //}
+
+            m_window = WindowHelper.CreateWindow();
             //Create a Frame to act as the navigation context
             Frame rootFrame = new Frame();
             rootFrame.NavigationFailed += OnNavigationFailed;
@@ -59,5 +76,6 @@ namespace DemoUI
         {
             throw new Exception("Failed to load page " + e.SourcePageType.FullName);
         }
+       
     }
 }
