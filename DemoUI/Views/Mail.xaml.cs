@@ -5,11 +5,14 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Org.BouncyCastle.Bcpg.Sig;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Contacts;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -23,9 +26,30 @@ namespace DemoUI.Views
     /// </summary>
     public sealed partial class Mail : Page
     {
+        internal ObservableCollection<Message1> Messages { get; set; } = new ObservableCollection<Message1>();
         public Mail()
         {
             this.InitializeComponent();
+            InvertedListView.ItemsSource = Messages;
+        }
+
+        private void btnSendMessage_Click(object sender, RoutedEventArgs e)
+        {
+            Messages.Add(new Message1());
+            InvertedListView.ItemsSource = Messages;
+        }
+        
+        private void btnReceiveMessage_Click(object sender, RoutedEventArgs e)
+        {
+            Messages.Add(new Message1("Hello", "Test", HorizontalAlignment.Left));
+            InvertedListView.ItemsSource = Messages;
+        }
+
+        private void ContactDeleteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var item = (sender as FrameworkElement).DataContext;
+            var message = item as Message1;
+            Messages.Remove(message);
         }
     }
 }

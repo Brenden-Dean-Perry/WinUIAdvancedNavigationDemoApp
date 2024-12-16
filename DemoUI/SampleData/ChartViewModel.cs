@@ -16,26 +16,26 @@ namespace DemoUI
             Title = "Hello WinUI 3",
             PlotAreaBorderColor = OxyColors.Transparent,
             Axes =
-        {
-            new LinearAxis { Position = AxisPosition.Bottom },
-            new LinearAxis { Position = AxisPosition.Left },
-        },
-                Series =
-        {
-            new LineSeries
             {
-                Title = "LineSeries",
-                MarkerType = MarkerType.Circle,
-                Points =
+                new LinearAxis { Position = AxisPosition.Bottom },
+                new LinearAxis { Position = AxisPosition.Left },
+            },
+            Series =
+            {
+                new LineSeries
                 {
-                    new DataPoint(0, 0),
-                    new DataPoint(10, 18),
-                    new DataPoint(20, 12),
-                    new DataPoint(30, 8),
-                    new DataPoint(40, 15),
+                    Title = "LineSeries",
+                    MarkerType = MarkerType.Circle,
+                    Points =
+                    {
+                        new DataPoint(0, 0),
+                        new DataPoint(10, 18),
+                        new DataPoint(20, 12),
+                        new DataPoint(30, 8),
+                        new DataPoint(40, 15),
+                    }
                 }
             }
-        }
-            };
+        };
     }
 }

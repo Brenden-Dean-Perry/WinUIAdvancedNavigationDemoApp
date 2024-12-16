@@ -9,12 +9,55 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    
+    <StackPanel>
         <TextBlock></TextBlock>
         <TextBlock x:Name="Header" 
        Text="Mail" 
        HorizontalAlignment="Center"
        Margin="16"
        Style="{StaticResource TitleTextBlockStyle}"></TextBlock>
-    </Grid>
+        <TextBlock></TextBlock>
+        <Button Name="btnSendMessage" Content="Send Message" Click="btnSendMessage_Click" Background="DodgerBlue" HorizontalAlignment="Center"></Button>
+        <TextBlock></TextBlock>
+        <Button Name="btnRecieveMessage" Content="Receive Message" Click="btnReceiveMessage_Click" Background="DodgerBlue"  HorizontalAlignment="Center"></Button>
+        <TextBlock></TextBlock>
+        
+        <ListView x:Name="InvertedListView">
+            <ListView.ItemTemplate>
+                <DataTemplate  x:DataType="local:Message1">
+                    <Grid Height="Auto" Margin="4" HorizontalAlignment="{x:Bind MsgAlignment}">
+                        <Grid.ContextFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Delete" Click="ContactDeleteMenuItem_Click"/>
+                            </MenuFlyout>
+                        </Grid.ContextFlyout>
+                        <StackPanel MinHeight="75" Width="350" Padding="10, 0, 0, 10" Background="{x:Bind MsgColor}" CornerRadius="{StaticResource ControlCornerRadius}">
+                            <TextBlock Text="{x:Bind MsgText}" Padding="0, 10, 0, 0" FontSize="20" Foreground="{ThemeResource SystemColorHighlightTextColor}"/>
+                            <TextBlock Text="{x:Bind MsgDateTime}" Padding="0, 0, 0, 10" FontSize="15" Foreground="{ThemeResource SystemColorHighlightTextColor}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView"
+                                  VerticalAlignment="Bottom"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <!-- This setter property is created so ListViewItems correctly align to the left or right. -->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+        
+
+    </StackPanel>
+    
 </Page>
+
+
