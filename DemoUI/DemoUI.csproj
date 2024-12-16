@@ -49,6 +49,10 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CSharp_PresentationLayer\PresentationLayer\PresentationLayer.csproj" />
+    <ProjectReference Include="..\..\CSharp_UseCases\UseCases\UseCases.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
