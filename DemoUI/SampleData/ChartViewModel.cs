@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DemoUI
 {
-    internal static class ChartViewModel
+    internal class ChartViewModel
     {
-        public static PlotModel Model { get; private set; } = new PlotModel
+        public PlotModel Model { get; private set; } = new PlotModel
         {
             Title = "Hello WinUI 3",
             PlotAreaBorderColor = OxyColors.Transparent,

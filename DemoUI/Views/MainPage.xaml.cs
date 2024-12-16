@@ -103,7 +103,6 @@ namespace DemoUI.Views
         private void TabView_TabCloseRequested(TabView sender, TabViewTabCloseRequestedEventArgs args)
         {
             TabViewHelper.RemoveTabByGUID((Guid)args.Tab.Tag);
-            args.Tab.Content = null;
         }
 
         private void NavigationViewControl_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)

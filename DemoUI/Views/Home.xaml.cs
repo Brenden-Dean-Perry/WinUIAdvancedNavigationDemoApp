@@ -24,7 +24,7 @@ namespace DemoUI.Views
     /// </summary>
     public sealed partial class Home : Page
     {
-        PlotModel ChartDataModel { get; set; } = ChartViewModel.Model;
+        PlotModel ChartDataModel { get; set; } = new ChartViewModel().Model;
         public Home()
         {
             this.InitializeComponent();
